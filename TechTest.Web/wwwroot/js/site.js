@@ -2,14 +2,14 @@
 
 function calculate() {
 	if ($("form").valid()) {
-		const txtAmountInWords = document.getElementById("AmountInWords");
-		const txtCheckAmount = document.getElementById("CheckAmount");
-		const chkInUpper = document.getElementById("InUpper");
-		const divError = document.getElementById("divError");
+		const txtAmountInWords = $("#AmountInWords");
+		const txtCheckAmount = $("#CheckAmount");
+		const chkInUpper = $("#InUpper");
+		const divError = $("#divError");
 
 		divError.innerHTML = "";
-		var uri = baseUri + "/" + txtCheckAmount.value;
-		if (chkInUpper.checked)
+		var uri = baseUri + "/" + txtCheckAmount.val();
+		if (chkInUpper.prop("checked"))
 			uri += "/true";
 
 		fetch(uri, {
@@ -19,7 +19,7 @@ function calculate() {
 			}
 		})
 			.then(response => response.json())
-			.then(data => txtAmountInWords.value = data)
-			.catch(error => divError.innerHTML = "Unable to get response from API:<br/>" + error);
+			.then(data => txtAmountInWords.val(data))
+			.catch(error => divError.html("Unable to get response from API:<br/>" + error));
 	}
 }
