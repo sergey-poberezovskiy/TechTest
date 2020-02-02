@@ -1,0 +1,47 @@
+﻿@model CheckWriterViewModel
+
+@{
+	ViewData["Title"] = "Check Writer with JavaScript";
+}
+
+<div>
+	<h4>Check Writer with JavaScript</h4>
+	<hr />
+	<div class="row">
+		<div class="col-md-6">
+			<form action="javascript:void(0);" onsubmit="calculate()">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="PersonName" class="col-form-label"></label>
+					<input asp-for="PersonName" class="form-control" />
+					<span asp-validation-for="PersonName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="CheckAmount" class="col-form-label"></label>
+					<input asp-for="CheckAmount" class="form-control" />
+					<span asp-validation-for="CheckAmount" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input id="InUpper" type="checkbox" checked="checked" class="form-check-inline" />
+					<label for="InUpper" class="form-check-label">Write in UPPER case</label>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Write with JavaScript" class="btn btn-primary" />
+				</div>
+				<div id="divError" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="AmountInWords" class="col-form-label"></label>
+					<input asp-for="AmountInWords" class="form-control" readonly="readonly" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div>
+	<a asp-action="Index">Reset</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/js/site.js" type="text/javascript" asp-append-version="true"></script>
+}

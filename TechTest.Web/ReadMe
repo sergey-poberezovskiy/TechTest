@@ -1,0 +1,7 @@
+﻿The solution is built in ASP.Net Core MVC 3.1
+
+Both front-end application and the web service are implemented in the same ASP.Net Core Web Application project.
+
+ApiClient contains generic method to access API whilst the concrete call to the currency to words converter is in ApiClient.CheckWriter file.
+
+The API location can be configured in appsettings.json, or if not - the local implementation is used.

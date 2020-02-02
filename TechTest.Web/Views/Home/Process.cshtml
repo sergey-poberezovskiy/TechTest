@@ -1,0 +1,23 @@
+﻿@model TechTest.Web.Models.CheckWriterViewModel
+
+@{
+	ViewData["Title"] = "Process Result";
+}
+
+
+<div>
+	<h2>Processed result</h2>
+	<hr />
+	<dl class="row">
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PersonName)
+		</dd>
+		<dd class="col-sm-10" title="@string.Format("{0:C}", Model.CheckAmount)">
+			"@Html.DisplayFor(model => model.AmountInWords)"
+		</dd>
+	</dl>
+</div>
+
+<div>
+	<a asp-action="IndexNoJS">Back</a>
+</div>
